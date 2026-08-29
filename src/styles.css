@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-bg: #f5f0e8;
+  --color-bg-warm: #ebe3d6;
+  --color-surface: #faf7f2;
+  --color-fg: #2a2622;
+  --color-ink: #1c1917;
+  --color-muted: #6e675e;
+  --color-subtle: #8a8278;
+  --color-accent: #5e6b58;
+  --color-accent-hover: #4f5b4a;
+  --color-accent-fg: #f5f0e8;
+  --color-border: #ddd4c6;
+  --color-cream: #f5f0e8;
+  --color-sage: #5e6b58;
+  --color-sage-soft: #e4e7df;
+
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+
+  --shadow-card:
+    0 0 0 1px rgba(42, 38, 34, 0.05),
+    0 1px 2px -1px rgba(42, 38, 34, 0.06),
+    0 8px 24px -12px rgba(42, 38, 34, 0.12);
+  --shadow-card-hover:
+    0 0 0 1px rgba(42, 38, 34, 0.08),
+    0 2px 4px -1px rgba(42, 38, 34, 0.08),
+    0 16px 32px -16px rgba(42, 38, 34, 0.18);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  img {
+    outline: 1px solid rgba(42, 38, 34, 0.08);
+    outline-offset: -1px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 28%, white);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@utility container-site {
+  width: min(72rem, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+@utility container-narrow {
+  width: min(42rem, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+@utility container-wide {
+  width: min(80rem, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
